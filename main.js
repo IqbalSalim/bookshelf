@@ -1,4 +1,4 @@
-const books = [];
+let books = [];
 const RENDER_EVENT = "render-book";
 const SAVED_EVENT = "saved-book";
 const STORAGE_KEY = "BOOK_APPS";
@@ -13,14 +13,18 @@ document.addEventListener("DOMContentLoaded", function () {
     loadDataFromStorage();
   }
 
-  const searchForm = document.getElementById("searchSubmit");
-  searchForm.addEventListener("submit", function (event) {
+  const searchBook = document.getElementById("searchBook");
+  const searchBookTitle = document.getElementById("searchBookTitle").value;
+  searchBook.addEventListener("submit", function (event) {
     event.preventDefault();
-    searcBook();
+    searcBook(searchBookTitle);
   });
 });
 
-function searcBook(title) {}
+function searcBook(title) {
+  books = books.filter((i) => i.title.match(/buku.*/));
+  console.log(books);
+}
 
 function addBook() {
   const id = generateId();
