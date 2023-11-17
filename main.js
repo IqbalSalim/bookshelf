@@ -40,6 +40,7 @@ function addBook() {
 
   const bookObject = generateBookObject(id, title, author, year, isComplete);
   books.push(bookObject);
+  console.log(books);
 
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
@@ -62,7 +63,7 @@ function generateBookObject(id, title, author, year, isComplete) {
     id,
     title,
     author,
-    year,
+    year: parseInt(year),
     isComplete,
   };
 }
@@ -299,7 +300,7 @@ function updateData(bookTarget) {
 
   bookTarget.title = title;
   bookTarget.author = author;
-  bookTarget.year = year;
+  bookTarget.year = parseInt(year);
   bookTarget.isComplete = isComplete;
 
   document.dispatchEvent(new Event(RENDER_EVENT));
