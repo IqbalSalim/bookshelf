@@ -40,7 +40,6 @@ function addBook() {
 
   const bookObject = generateBookObject(id, title, author, year, isComplete);
   books.push(bookObject);
-  console.log(books);
 
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData();
